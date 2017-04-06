@@ -82,7 +82,7 @@ else
     fi
     REBOOT_NEEDED=
     if [[ ${ACTION}d != $LIVE_STATUS ]]; then
-      REBOOT_NEEDED=", a reboot is required to make this take effect"
+      REBOOT_NEEDED=", a reboot is required to make this take effect.."
       shutdown -r now "RPi will restart..."
     fi
     echo "Serial console has been ${ACTION}d$REBOOT_NEEDED"
