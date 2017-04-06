@@ -24,7 +24,7 @@ if [[ $(grep -v ^# "$INITTAB" | grep $UART) ]]; then
   INITTAB_STATUS=enabled
 fi
 LIVE_STATUS=disabled
-if [[ $(grep $UART /proc/cmdline) ]]; then
+if [[ $(grep $UART $CMDLINE) ]]; then
   LIVE_STATUS=enabled
 fi
 if [[ $CMDLINE_STATUS != $INITTAB_STATUS ]]; then
@@ -82,8 +82,8 @@ else
     fi
     REBOOT_NEEDED=
     if [[ ${ACTION}d != $LIVE_STATUS ]]; then
-      REBOOT_NEEDED=", a reboot is required to make this take effect.."
       shutdown -r now "RPi will restart..."
+      REBOOT_NEEDED=", a reboot is required to make this take effect.."
     fi
     echo "Serial console has been ${ACTION}d$REBOOT_NEEDED"
   fi
