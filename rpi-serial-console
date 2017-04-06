@@ -83,7 +83,7 @@ else
     REBOOT_NEEDED=
     if [[ ${ACTION}d != $LIVE_STATUS ]]; then
       REBOOT_NEEDED=", a reboot is required to make this take effect"
-      reboot now
+      sudo reboot now
     fi
     echo "Serial console has been ${ACTION}d$REBOOT_NEEDED"
   fi
