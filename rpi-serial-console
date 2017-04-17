@@ -69,9 +69,9 @@ else
       NEW_CMDLINE_CONTENTS=
       for p in $CMDLINE_CONTENTS; do
         if [[ ${p%%=*} == console || ${p%%=*} == kgdboc ]]; then
-          if [[ $(echo ${p#*=} | grep $UART) ]]; then
+          # if [[ $(echo ${p#*=} | grep $UART) ]]; then
             continue
-          fi
+          # fi
         fi
         if [[ "$NEW_CMDLINE_CONTENTS" != "" ]]; then
           NEW_CMDLINE_CONTENTS="$NEW_CMDLINE_CONTENTS "
